@@ -15,7 +15,7 @@ class NewvisitorTest(unittest.TestCase):
 		headtext=self.driver.find_element_by_tag_name('h1').text
 		self.assertIn('To-Do',headtext)
 #他输入了第一个代办事项，test hoden
-		input=self.driver.find_element_by_id("id_new_item");L C
+		input=self.driver.find_element_by_id("id_new_item");
 		self.assertEqual(input.get_attribute('placeholder'),"Enter a to-do item")
 		input.send_keys('test hoden')
 #完成输入后，enter页面刷新了
