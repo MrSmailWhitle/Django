@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import unittest
 import time
 class NewvisitorTest(unittest.TestCase):
@@ -24,7 +25,7 @@ class NewvisitorTest(unittest.TestCase):
 #这时页面出现了一条代办事项；1. test hoden；
 		table=self.driver.find_element_by_id('id_list_table')
 		rows=table.find_elements_by_tag_name('tr')
-		self.assertTrue(row.text=='1.test hoden' for row in rows)
+		self.assertTrue(any(row.text=='1.test hoden' for row in rows),"new to do item not appear in table")
 #页面此时又刷新了一个新的输入框，可以输入新的代办事项
 #白输入了代办事项：2.retry bugs
 #完成输入后，页面刷新了输入框；同时出现了代办事项列表更新为2个
